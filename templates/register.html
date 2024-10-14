@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 class="text-3xl text-blue-500 text-center">Register</h2>
+    <form method="POST" class="mt-4">
+        <div>
+            <label for="username" class="block text-gray-300">Username:</label>
+            <input type="text" name="username" required class="mt-1 p-2 w-full bg-gray-700 text-blue-200 rounded" />
+        </div>
+        <div class="mt-4">
+            <label for="password" class="block text-gray-300">Password:</label>
+            <input type="password" name="password" required class="mt-1 p-2 w-full bg-gray-700 text-blue-200 rounded" />
+        </div>
+        <button type="submit" class="mt-4 w-full p-2 bg-blue-600 rounded hover:bg-blue-500 transition">Register</button>
+        <p class="mt-4 text-center text-gray-300">Already have an account? <a href="/login" class="text-blue-500">Log In</a></p>
+    </form>
+</div>
+{% endblock %}

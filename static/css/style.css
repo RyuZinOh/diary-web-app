@@ -1,0 +1,12 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header, footer {
+    background-color: #2d3748;
+    border-radius: 0.5rem;
+}
+
+h1, h2, p {
+    margin: 0.5rem 0;
+}

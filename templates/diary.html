@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+    <h2 class="text-3xl text-blue-500 text-center">Welcome, {{ username }}!</h2>
+    <p class="mt-2 text-gray-300 text-center">Manage your diary entries below.</p>
+    <form method="POST" action="#" class="mt-4">
+        <textarea name="entry" class="w-full p-2 rounded bg-gray-700 text-blue-200" rows="4" placeholder="Write your diary entry..." required></textarea>
+        <button type="submit" class="mt-2 w-full p-2 bg-blue-600 rounded hover:bg-blue-500 transition">Save Entry</button>
+    </form>
+    <h3 class="mt-6 text-2xl text-blue-500 text-center">Your Diary Entries:</h3>
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for entry in entries %}
+            <div class="bg-gray-700 p-4 rounded-lg shadow-md">
+                <p class="text-blue-200">{{ entry.content }}</p>
+                <p class="text-sm text-gray-400">{{ entry.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <form action="{{ url_for('delete_entry', entry_id=entry['_id']) }}" method="POST" class="mt-2">
+                    <button type="submit" class="text-red-600 hover:text-red-500">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="flex justify-between mt-4">
+        <form action="{{ url_for('settings') }}" method="GET">
+            <button type="submit" class="p-2 bg-yellow-600 rounded hover:bg-yellow-500 transition">Settings</button>
+        </form>
+        <form action="{{ url_for('logout') }}" method="GET">
+            <button type="submit" class="mt-4 p-2 bg-red-600 rounded hover:bg-red-500 transition">Logout</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
