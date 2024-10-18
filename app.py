@@ -4,6 +4,7 @@ from datetime import datetime
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
 import os
+from keep_alive import keep_alive
 
 load_dotenv()
 
@@ -85,3 +86,6 @@ def logout():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
+
+keep_alive()
